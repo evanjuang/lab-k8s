@@ -3,22 +3,29 @@ vm_list = [
         :name => "k8s-master",
         :eth1 => "192.168.121.220",
         :mem => "4096",
-        :cpu => "2",
+        :cpu => "4",
         :sshport => 22230
     },
     {
         :name => "k8s-worker1",
         :eth1 => "192.168.121.221",
-        :mem => "2048",
-        :cpu => "2",
+        :mem => "4096",
+        :cpu => "4",
         :sshport => 22231
     },
     {
         :name => "k8s-worker2",
         :eth1 => "192.168.121.222",
-        :mem => "2048",
-        :cpu => "2",
+        :mem => "4096",
+        :cpu => "4",
         :sshport => 22232
+    },
+    {
+        :name => "k8s-worker3",
+        :eth1 => "192.168.121.223",
+        :mem => "4096",
+        :cpu => "4",
+        :sshport => 22233
     }
 ]
 
@@ -33,8 +40,11 @@ Vagrant.configure("2") do |config|
         vm_config.vm.network "private_network", ip: item[:eth1]
 
         vm_config.vm.provider "libvirt" do |vb|
-            vb.memory = item[:mem];
-            vb.cpus = item[:cpu];
+            vb.memory = item[:mem]
+            vb.cpus = item[:cpu]
+            if item[:name] != "k8s-master"
+                vb.storage :file, :size => "10G"
+            end
         end
 
         vm_config.vm.provision "shell", path: "scripts/common.sh"
