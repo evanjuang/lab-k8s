@@ -38,11 +38,11 @@ firewall-cmd --permanent --zone=libvirt --add-service=nfs3  \
     vagrant plugin install vagrant-libvirt
     ```
 ## Enable NFS
-    ```shell
-    sudo apt-get -y install nfs-kernel-server
-    sudo systemctl enable --now nfs-server
-    ufw allow nfs
-    ```
+```shell
+sudo apt-get -y install nfs-kernel-server
+sudo systemctl enable --now nfs-server
+ufw allow nfs
+```
 # Create Cluster
 - Update IP
     - `scripts/master.sh`
