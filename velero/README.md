@@ -5,7 +5,6 @@
     - install `kubectl`
 - k8s
     - `vagrant/multi-node`
-
 # Setup minio
 1. Run minio by docker
     - `minio/start-minio.sh`
