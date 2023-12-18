@@ -48,3 +48,9 @@
     $ velero restore get
     $ velero restore describe nginx-backup-xxxxxxxxx
     ```
+# Test: Using local volume
+- [setup env](./localpv/README.md)
+- velero-install.sh
+# Test: Using CSI snapshot
+- [setup env](./WithCSI.md)
+- velero-install-csi.sh
