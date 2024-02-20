@@ -1,4 +1,4 @@
-# Test Envirionment
+# Test Environment
 - host
     - IP: 192.168.122.1
     - install `docker`
